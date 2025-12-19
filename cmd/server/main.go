@@ -21,7 +21,7 @@ func main() {
         defer logg.Sync()
 	dbConn, err := sql.Open(
 		"postgres",
-		"postgres://postgres:Likhi@1234@localhost:5432/user_service?sslmode=disable",
+		"postgres://postgres:<PASSWORD>@localhost:5432/user_service?sslmode=disable",
 	)
 	if err != nil {
 		logg.Fatal("Failed to connect to database", zap.Error(err))
