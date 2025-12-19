@@ -1,5 +1,6 @@
 # Go Backend – User Management Service 
 Author: Sai Likhitha Gaddam
+
 A RESTful Go backend service for user management with PostgreSQL, SQLC, and dynamic age calculation. Built with clean architecture, validation, and structured logging.
 
 📌 Overview
@@ -44,6 +45,7 @@ CREATE TABLE users (
     name TEXT NOT NULL,
     dob DATE NOT NULL
 );
+
 - dob is stored in the database
 
 - age is not stored (calculated dynamically)
@@ -51,7 +53,7 @@ CREATE TABLE users (
 🔄 API Endpoints
 ------------------
 
-#Create User
+- Create User
 
 POST /users
 
@@ -70,7 +72,7 @@ Response
   "dob": "1990-05-10"
 }
 
-#Get User by ID
+- Get User by ID
 
 GET /users/{id}
 
@@ -82,7 +84,7 @@ Response
   "age": 35
 }
 
-#List All Users
+- List All Users
 
 GET /users
 
@@ -96,7 +98,7 @@ Response
   }
 ]
 
-#Update User
+- Update User
 
 PUT /users/{id}
 
@@ -113,7 +115,7 @@ Response
   "dob": "1991-03-15"
 }
 
-#Delete User
+- Delete User
 
 DELETE /users/{id}
 
