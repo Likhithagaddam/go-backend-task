@@ -1,5 +1,6 @@
 # Go Backend – User Management Service
 A RESTful Go backend service for user management with PostgreSQL, SQLC, and dynamic age calculation. Built with clean architecture, validation, and structured logging.
+
 📌 Overview
 
 This project is a RESTful backend API built using Go (Golang) to manage users with their name and date of birth (DOB).
@@ -7,7 +8,7 @@ The service stores DOB in PostgreSQL and calculates age dynamically at runtime u
 
 The application follows a clean, layered architecture and uses SQLC for type-safe database access.
 
-#Technology Stack
+🛠️ Technology Stack
 
 Language: Go (Golang)
 
@@ -24,6 +25,7 @@ Validation: go-playground/validator
 Middleware: Custom (Request ID & Request duration logging)
 
 📂 Project Structure
+
 .
 ├── cmd
 │   └── server
@@ -47,7 +49,10 @@ Middleware: Custom (Request ID & Request duration logging)
 └── README.md
 
 🗄️ Database Schema
-#users table
+
+users table
+-----------
+
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL,
@@ -58,24 +63,29 @@ CREATE TABLE users (
 - age is not stored (calculated dynamically)
 
 🔄 API Endpoints
-➕ Create User
+
+Create User
+------------
 
 POST /users
 
 Request
+
 {
   "name": "Alice",
   "dob": "1990-05-10"
 }
 
 Response
+
 {
   "id": 1,
   "name": "Alice",
   "dob": "1990-05-10"
 }
 
-🔍 Get User by ID
+Get User by ID
+--------------
 
 GET /users/{id}
 
@@ -87,7 +97,8 @@ Response
   "age": 35
 }
 
-📄 List All Users
+List All Users
+--------------
 
 GET /users
 
@@ -101,7 +112,8 @@ Response
   }
 ]
 
-✏️ Update User
+Update User
+-----------
 
 PUT /users/{id}
 
@@ -118,7 +130,8 @@ Response
   "dob": "1991-03-15"
 }
 
-🗑️ Delete User
+Delete User
+-----------
 
 DELETE /users/{id}
 
@@ -128,25 +141,25 @@ HTTP 204 No Content
 
 ✅ Key Features & Deliverables
 
-✔ RESTful API using GoFiber
+- RESTful API using GoFiber
 
-✔ PostgreSQL database integration
+- PostgreSQL database integration
 
-✔ SQLC for type-safe query generation
+- SQLC for type-safe query generation
 
-✔ Clean architecture (Handler, Service, Repository)
+- Clean architecture (Handler, Service, Repository)
 
-✔ Input validation using go-playground/validator
+- Input validation using go-playground/validator
 
-✔ DOB stored, age calculated dynamically
+- DOB stored, age calculated dynamically
 
-✔ Structured logging using Uber Zap
+- Structured logging using Uber Zap
 
-✔ Request ID added to every response
+- Request ID added to every response
 
-✔ Request duration logging middleware
+- Request duration logging middleware
 
-✔ Proper HTTP status codes and error handling
+- Proper HTTP status codes and error handling
 
 🧠 Architecture Overview
 
@@ -163,7 +176,8 @@ Middleware - Request ID generation, Request execution time logging
 Logger - Centralized Zap logger configuration
 
 🚀 Setup & Run Instructions
-1️⃣ Prerequisites
+
+1.  Prerequisites
 
 Go (v1.20+ recommended)
 
@@ -171,26 +185,33 @@ PostgreSQL
 
 SQLC installed
 
-2️⃣ Clone the Repository
+2️.  Clone the Repository
 
 git clone <your-github-repo-url>
+
 cd go-backend-task
 
-3️⃣ Create Database
+3️.  Create Database
+
 CREATE DATABASE user_service;
 
-4️⃣ Run Migration
+4️.  Run Migration
+
 psql -U postgres -d user_service -f db/migrations/001_create_users.sql
 
-5️⃣ Generate SQLC Code
+5️.  Generate SQLC Code
+
 cd db/sqlc
+
 sqlc generate
+
 cd ../..
 
-6️⃣ Install Dependencies
+6️.  Install Dependencies
+
 go mod tidy
 
-7️⃣ Configure Database Connection
+7️.  Configure Database Connection
 
 Update the database connection string in:
 
@@ -198,13 +219,15 @@ cmd/server/main.go
 
 postgres://postgres:<PASSWORD>@localhost:5432/user_service?sslmode=disable
 
-8️⃣ Run the Server
+8️.  Run the Server
+
 go run cmd/server/main.go
 
 Server starts on:
 http://localhost:3000
 
 🧪 Testing the API (Windows PowerShell)
+
 Invoke-RestMethod `
   -Uri http://127.0.0.1:3000/users `
   -Method Post `
@@ -217,9 +240,9 @@ Invoke-RestMethod http://127.0.0.1:3000/users/1
 
 Each request includes:
 
-Unique X-Request-ID header
+  - Unique X-Request-ID header
 
-Request duration logging
+  - Request duration logging
 
 Logs are structured using Uber Zap
 
@@ -227,15 +250,15 @@ Logs are structured using Uber Zap
 
 This project fully satisfies all the mandatory requirements of the task and demonstrates:
 
-Clean backend architecture
+- Clean backend architecture
 
-Type-safe database interaction using SQLC
+- Type-safe database interaction using SQLC
 
-Proper use of Go’s time package
+- Proper use of Go’s time package
 
-Production-style logging and middleware
+- Production-style logging and middleware
 
-Maintainable and scalable code structure
+- Maintainable and scalable code structure
 
 📌 Author
 
