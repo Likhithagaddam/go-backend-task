@@ -1,7 +1,9 @@
-# Go Backend – User Management Service
+# Go Backend – User Management Service 
+Author: Sai Likhitha Gaddam
 A RESTful Go backend service for user management with PostgreSQL, SQLC, and dynamic age calculation. Built with clean architecture, validation, and structured logging.
 
 📌 Overview
+------------
 
 This project is a RESTful backend API built using Go (Golang) to manage users with their name and date of birth (DOB).
 The service stores DOB in PostgreSQL and calculates age dynamically at runtime using Go’s time package.
@@ -9,6 +11,7 @@ The service stores DOB in PostgreSQL and calculates age dynamically at runtime u
 The application follows a clean, layered architecture and uses SQLC for type-safe database access.
 
 🛠️ Technology Stack
+--------------------
 
 Language: Go (Golang)
 
@@ -25,30 +28,13 @@ Validation: go-playground/validator
 Middleware: Custom (Request ID & Request duration logging)
 
 📂 Project Structure
+---------------------
 
-.
-├── cmd
-│   └── server
-│       └── main.go
-├── db
-│   ├── migrations
-│   │   └── 001_create_users.sql
-│   └── sqlc
-│       ├── queries.sql
-│       ├── sqlc.yaml
-│       └── (sqlc generated files)
-├── internal
-│   ├── handler
-│   ├── service
-│   ├── repository
-│   ├── routes
-│   ├── middleware
-│   └── logger
-├── go.mod
-├── go.sum
-└── README.md
+<img width="323" height="521" alt="image" src="https://github.com/user-attachments/assets/7a0fa235-47a4-4679-82a1-0549e8932fd9" />
+
 
 🗄️ Database Schema
+-------------------
 
 users table
 -----------
@@ -63,9 +49,9 @@ CREATE TABLE users (
 - age is not stored (calculated dynamically)
 
 🔄 API Endpoints
+------------------
 
-Create User
-------------
+#Create User
 
 POST /users
 
@@ -84,8 +70,7 @@ Response
   "dob": "1990-05-10"
 }
 
-Get User by ID
---------------
+#Get User by ID
 
 GET /users/{id}
 
@@ -97,8 +82,7 @@ Response
   "age": 35
 }
 
-List All Users
---------------
+#List All Users
 
 GET /users
 
@@ -112,8 +96,7 @@ Response
   }
 ]
 
-Update User
------------
+#Update User
 
 PUT /users/{id}
 
@@ -130,8 +113,7 @@ Response
   "dob": "1991-03-15"
 }
 
-Delete User
------------
+#Delete User
 
 DELETE /users/{id}
 
@@ -140,6 +122,7 @@ Response
 HTTP 204 No Content
 
 ✅ Key Features & Deliverables
+-------------------------------
 
 - RESTful API using GoFiber
 
@@ -162,6 +145,7 @@ HTTP 204 No Content
 - Proper HTTP status codes and error handling
 
 🧠 Architecture Overview
+-------------------------
 
 Handler Layer - Handles HTTP requests and responses
 
@@ -176,6 +160,7 @@ Middleware - Request ID generation, Request execution time logging
 Logger - Centralized Zap logger configuration
 
 🚀 Setup & Run Instructions
+----------------------------
 
 1.  Prerequisites
 
@@ -227,6 +212,7 @@ Server starts on:
 http://localhost:3000
 
 🧪 Testing the API (Windows PowerShell)
+---------------------------------------
 
 Invoke-RestMethod `
   -Uri http://127.0.0.1:3000/users `
@@ -237,6 +223,7 @@ Invoke-RestMethod `
 Invoke-RestMethod http://127.0.0.1:3000/users/1
 
 📊 Logging & Middleware
+-------------------------
 
 Each request includes:
 
@@ -247,6 +234,7 @@ Each request includes:
 Logs are structured using Uber Zap
 
 🏁 Conclusion
+-----------------
 
 This project fully satisfies all the mandatory requirements of the task and demonstrates:
 
@@ -260,6 +248,3 @@ This project fully satisfies all the mandatory requirements of the task and demo
 
 - Maintainable and scalable code structure
 
-📌 Author
-
-Sai Likhitha Gaddam
